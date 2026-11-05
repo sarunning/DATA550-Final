@@ -38,24 +38,9 @@ diabetes <- diabetes %>%
 
 ```{r table-one, echo=FALSE, fig.cap="Table 1. Characteristics of respondents by diabetes status."}
 
-library(gtsummary)
-diabetes %>%
-  select(Diabetes_status, BMI, HighBP,
-          PhysActivity, Sex
-  ) %>% 
-  tbl_summary(
-    by = Diabetes_status,
-    label = list(
-      BMI ~ "Body Mass Index",
-      HighBP ~ "High Blood Pressure",
-      PhysActivity ~ "Physical Activity",
-      Sex ~ "Sex"),
-    statistic = list(
-      all_continuous() ~ "{mean} ({sd})",
-      all_categorical() ~ "{n} ({p}%)")
-  ) %>%
-  modify_header(label = "**Characteristic**") %>%
-  modify_caption("**Table 1. Characteristics of respondents by diabetes status**")
+source("R/create_table.R")
+
+table1
 
 ```
 
@@ -63,22 +48,9 @@ Table 1 summarizes selected demographic and health characteristics of respondent
 
 ```{r Boxplot, echo=FALSE, fig.cap="Figure 1. Distribution of body mass index (BMI) by diabetes status."}
 
-library(ggplot2)
-ggplot(diabetes, aes(x = Diabetes_status, y = BMI, fill = Diabetes_status)) +
-  geom_violin(alpha = 0.5, trim = FALSE) +
-  geom_boxplot(width = 0.2,  fill = "white", alpha = 0.7, outlier.alpha = 0.2) +
-  labs(
-    x = "Diabetes Status",
-    y = "Body Mass Index (BMI)",
-    title = "Body Mass Index Distribution by Diabetes Status"
-  ) +
-  theme_minimal(base_size = 13) +
-  theme(
-    legend.position = "none",
-    plot.title = element_text(face = "bold", size = 16),
-    axis.title = element_text(face = "bold")
-  )
+source("R/create_figure.R")
 
+figure1
 ```
 
 
