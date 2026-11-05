@@ -1,21 +1,28 @@
-##Repository structure:
+# BRFSS Diabetes Final Project
 
-#R/: 
+## Repository structure:
+
+## R/: 
 contains R/create_table.R which creates table 1
 R/create_figure.R creates figure 1
 
-#data/raw/: 
+## data/raw/: 
 Contains BRFSS datasets used for analysis
 
-#reports/: 
+## reports/: 
 contains R markdown report and generated HTML
 
-#Makefile: 
+## Makefile: 
 Automates generation of HTML report
 
-#To generate the report:
+## To generate the report:
 Open a terminal in main project directory and run:
 make
 
-#Data:
+## Data:
 This project uses the 2015 BRFSS diabetes health indicators datasets
+
+## REQUIRES:
+dplyr
+gtsummary
+ggplot2
